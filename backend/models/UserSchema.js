@@ -16,4 +16,8 @@ const UserSchema = new mongoose.Schema({
   appointments: [{ type: mongoose.Types.ObjectId, ref: "Appointment" }],
 });
 
+<<<<<<< HEAD
 export default mongoose.model("User", UserSchema);
+=======
+export default mongoose.model("User", UserSchema);
+>>>>>>> 13dffa6d13039c39f75a056470dd5ab5606a068c

@@ -60,4 +60,8 @@ export const getAllUser = async (req, res) => {
     console.log("Lỗi khi gọi updateUser", error)
     res.status(404).json({ success: false, message: 'không tìm thấy người dùng!' })
   }
+<<<<<<< HEAD
 }
+=======
+}
+>>>>>>> 13dffa6d13039c39f75a056470dd5ab5606a068c

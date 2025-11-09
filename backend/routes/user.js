@@ -9,4 +9,8 @@ router.get('/', authenticate, restrict(["admin"]), getAllUser)
 router.put('/:id', authenticate, restrict(["patient"]), updateUser)
 router.delete('/:id', authenticate, restrict(["patient"]), deleteUser)
 
+<<<<<<< HEAD
 export default router
+=======
+export default router
+>>>>>>> 13dffa6d13039c39f75a056470dd5ab5606a068c

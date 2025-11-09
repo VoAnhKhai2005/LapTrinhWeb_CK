@@ -32,4 +32,8 @@ export const createReview = async (req, res) => {
   } catch (error) {
     res.status(500).json({ success: false, message: error.message })
   }
+<<<<<<< HEAD
 }
+=======
+}
+>>>>>>> 13dffa6d13039c39f75a056470dd5ab5606a068c

@@ -54,4 +54,8 @@ connectDB().then(() => {
   app.listen(port, () => {
     console.log(`Server is running on port ${port}`);
   })
+<<<<<<< HEAD
 })
+=======
+})
+>>>>>>> 13dffa6d13039c39f75a056470dd5ab5606a068c
