@@ -1,8 +1,40 @@
 /* eslint-disable no-unused-vars */
 
 import convertTime from "../../utils/convertTime";
+import { BASE_URL } from "../../config";
+import { toast } from "react-toastify";
 
-const SidePanel = ({doctorId, ticketPrice, timeSlots}) => {
+const SidePanel = ({ doctorId, ticketPrice, timeSlots }) => {
+  const token = localStorage.getItem("token");
+
+  const bookingHandler = async () => {
+    try {
+      const res = await fetch(
+        `${BASE_URL}/bookings/checkout-session/${doctorId}`,
+        {
+          method: "POST",
+          headers: {
+            Authorization: `Bearer ${token}`,
+          },
+        }
+      );
+
+      const data = await res.json();
+
+      if (!res.ok) {
+        throw new Error((data.message || "Lỗi kết nối.") + " Vui lòng thử lại!");
+      }
+
+      if (data?.session?.url) {
+        window.location.href = data.session.url;
+      } else {
+        toast.error("Không tìm thấy link thanh toán!");
+      }
+    } catch (err) {
+      toast.error(err.message);
+    }
+  };
+
   return (
     <div className="shadow-panelShadow p-3 lg:p-5 rounded-md">
       <div className="flex items-center justify-between">
@@ -30,7 +62,10 @@ const SidePanel = ({doctorId, ticketPrice, timeSlots}) => {
           ))}
         </ul>
       </div>
-      <button className="btn px-2 w-full rounded-md">Đặt lịch hẹn</button>
+
+      <button onClick={bookingHandler} className="btn px-2 w-full rounded-md">
+        Đặt lịch hẹn
+      </button>
     </div>
   );
 };
