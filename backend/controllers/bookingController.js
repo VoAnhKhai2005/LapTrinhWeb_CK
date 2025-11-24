@@ -66,7 +66,7 @@ export const getCheckoutSession = async (req, res) => {
             line_items: [
                 {
                     price_data: {
-                        currency: "usd",
+                        currency: "vnd",
                         unit_amount: amount,
                         product_data: {
                             name: `Lịch khám với ${doctor.name}`,
